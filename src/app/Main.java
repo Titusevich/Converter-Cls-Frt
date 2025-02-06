@@ -13,11 +13,20 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter amount of degrees in Fahrenheit: ");
         double frt = scan.nextDouble();
+        System.out.print("Enter amount of degrees in Celsius: ");
+        double cls = scan.nextDouble();
         double celsius = convertFahrenheitsToCelsius(frt);
-        System.out.printf("%nResult is %.1f degrees Celsius.", celsius);
+        double fahrenheit = convertCelsiusToFahrenheits(cls);
+        System.out.printf("%nResult is %.1f degrees Celsius " +
+                        "and %.1f degrees Fahrenheit.",
+                celsius, fahrenheit);
     }
 
-    private static double convertFahrenheitsToCelsius (double frt){
+    private static double convertFahrenheitsToCelsius(double frt) {
         return (frt - FREEZING_POINT) / DIFF_SCALE;
+    }
+
+    private static double convertCelsiusToFahrenheits(double cls) {
+        return cls * DIFF_SCALE + FREEZING_POINT;
     }
 }
